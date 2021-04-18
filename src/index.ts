@@ -59,13 +59,13 @@ function statement(invoice: any, plays: any) {
     return volumeCredits;
   }
   function totalAmount() {
-    let totalAmount = 0;
+    let result = 0;
 
     for (let perf of invoice.performances) {
-      totalAmount += amountFor(perf);
+      result += amountFor(perf);
     }
 
-    return totalAmount;
+    return result;
   }
   let result = `청구 내역 (고객명: ${invoice.customer})\n`;
 
