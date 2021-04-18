@@ -1,7 +1,11 @@
 import invoices from "./data/invoices.json";
 import plays from "./data/plays.json";
 
-function statement(invoice, plays) {
+function statement(invoices, plays) {
+  return renderPlainText(createStatementData(invoices, plays));
+}
+
+function createStatementData(invoice, plays) {
   const statementData = {} as any;
 
   statementData.customer = invoice.customer;
@@ -9,7 +13,7 @@ function statement(invoice, plays) {
   statementData.totalAmount = totalAmount(statementData);
   statementData.totalVolumeCredits = totalVolumeCredits(statementData);
 
-  return renderPlainText(statementData);
+  return statementData;
 
   function enrichPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance);
