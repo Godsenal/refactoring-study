@@ -49,6 +49,16 @@ function usd(aNumber: number) {
 }
 
 function statement(invoice: any, plays: any) {
+  function totalVolumeCredits() {
+    let volumeCredits = 0;
+
+    for (let perf of invoices.performances) {
+      volumeCredits += volumeCreditsFor(perf);
+    }
+
+    return volumeCredits;
+  }
+
   let totalAmount = 0;
   let result = `청구 내역 (고객명: ${invoice.customer})\n`;
 
