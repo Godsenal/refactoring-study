@@ -1,6 +1,10 @@
 import invoices from "./data/invoices.json";
 import plays from "./data/plays.json";
 
+function playFor(aPerformance) {
+  return plays[aPerformance.playID];
+}
+
 function amountFor(aPerformance, play) {
   let result = 0;
 
@@ -36,7 +40,7 @@ function statement(invoice: any, plays: any) {
   }).format;
 
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     let thisAmount = amountFor(perf, play);
 
     volumeCredits += Math.max(perf.audience - 30, 0);
