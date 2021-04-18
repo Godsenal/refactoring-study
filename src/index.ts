@@ -1,7 +1,11 @@
 import invoices from "./data/invoices.json";
 import plays from "./data/plays.json";
 
-function statement(invoice: any, plays: any) {
+function statement(invoice, plays) {
+  return renderPlainText(invoice, plays);
+}
+
+function renderPlainText(invoice: any, plays: any) {
   let result = `청구 내역 (고객명: ${invoice.customer})\n`;
 
   for (let perf of invoice.performances) {
