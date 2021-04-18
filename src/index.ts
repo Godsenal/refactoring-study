@@ -9,7 +9,7 @@ function statement(invoice, plays) {
   statementData.totalAmount = totalAmount(statementData);
   statementData.totalVolumeCredits = totalVolumeCredits(statementData);
 
-  return renderPlainText(statementData, plays);
+  return renderPlainText(statementData);
 
   function enrichPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance);
@@ -67,7 +67,7 @@ function statement(invoice, plays) {
   }
 }
 
-function renderPlainText(data, plays: any) {
+function renderPlainText(data) {
   let result = `청구 내역 (고객명: ${data.customer})\n`;
 
   for (let perf of data.performances) {
