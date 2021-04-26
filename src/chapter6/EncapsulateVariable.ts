@@ -1,5 +1,8 @@
 export let defaultOwner = { firstName: "마틴", lastName: "파울러" };
 
+const getDefaultOwner = () => defaultOwner;
+const setDefaultOwner = (arg: typeof defaultOwner) => (defaultOwner = arg);
+
 const example = (spaceship: { owner: any }) => {
   spaceship.owner = defaultOwner;
 
