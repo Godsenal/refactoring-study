@@ -15,7 +15,7 @@ describe("매개변수 객체 만들기 테스트", () => {
     };
     const range = new NumberRange(min, max);
 
-    expect(readingsOutsideRange(data, min, range)).toStrictEqual([
+    expect(readingsOutsideRange(data, range)).toStrictEqual([
       data.readings[0],
       data.readings[3],
     ]);
