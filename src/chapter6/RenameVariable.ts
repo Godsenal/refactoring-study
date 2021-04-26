@@ -1,11 +1,14 @@
 let tpHd = "untitled";
 
-export let result = `<h1>${tpHd}</h1>`;
+const title = () => tpHd;
+const setTitle = (arg: string) => (tpHd = arg);
+
+export let result = `<h1>${title()}</h1>`;
 
 export const obj = {
   articleTitle: "title",
 };
 
-tpHd = obj.articleTitle;
+setTitle(obj.articleTitle);
 
 export { tpHd };
