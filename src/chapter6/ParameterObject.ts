@@ -28,7 +28,8 @@ const stationData = {
 export const readingsOutsideRange = (
   station: TStation,
   min: number,
-  max: number
+  max: number,
+  range?: NumberRange
 ) => station.readings.filter((r) => r.temp < min || r.temp > max);
 
 const operatingPlan = {
