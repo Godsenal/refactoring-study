@@ -12,6 +12,9 @@ export class NumberRange {
   get max() {
     return this._data.max;
   }
+  contains(arg: number) {
+    return arg >= this.min && arg <= this.max;
+  }
 }
 
 const stationData = {
@@ -26,7 +29,7 @@ const stationData = {
 };
 
 export const readingsOutsideRange = (station: TStation, range: NumberRange) =>
-  station.readings.filter((r) => r.temp < range.min || r.temp > range.max);
+  station.readings.filter((r) => !range.contains(r.temp));
 
 const operatingPlan = {
   temperatureFloor: 52,
