@@ -1,6 +1,19 @@
 export type TReading = { temp: number; time: string };
 export type TStation = { name: string; readings: TReading[] };
 
+export class NumberRange {
+  private _data;
+  constructor(min, max) {
+    this._data = { min, max };
+  }
+  get min() {
+    return this._data.min;
+  }
+  get max() {
+    return this._data.max;
+  }
+}
+
 const stationData = {
   name: "ZB1",
   readings: [
