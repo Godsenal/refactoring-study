@@ -37,3 +37,12 @@ const setDefaultOwner = (data: any) => {
 - 폭넓게 쓰이는 변수라면변수 캡슐화하기를 고려
 - 이름을 바꿀 변수를 참조하는 곳을 모두 찾아서 하나씩 변경
   - 이 때 점진적으로 변경 가능
+
+```ts
+// 상수를 바꾸는 경우
+const cpyNm = "애플";
+
+// 변경할 이름의 상수를 만들고 기존 상수 대체
+const companyName = "애플";
+const cpyNm = companyName;
+```
