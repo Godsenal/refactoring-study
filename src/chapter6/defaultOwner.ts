@@ -4,7 +4,7 @@ export const defaultOwner = () => new Person(defaultOwnerData);
 export const setDefaultOwner = (arg: typeof defaultOwnerData) =>
   (defaultOwnerData = arg);
 
-class Person {
+export class Person {
   private _lastName;
   private _firstName;
   constructor(data) {

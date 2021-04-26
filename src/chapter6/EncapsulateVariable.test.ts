@@ -1,3 +1,5 @@
+import type { Person } from "./defaultOwner";
+
 describe("변수 캡슐화", () => {
   let defaultOwner;
   beforeEach(() => {
@@ -5,11 +7,14 @@ describe("변수 캡슐화", () => {
     defaultOwner = require("./defaultOwner").defaultOwner;
   });
   it("변수 캡슐화 테스트", () => {
-    const space = { owner: null };
+    const space: { owner: Person | null } = { owner: null };
 
     require("./EncapsulateVariable").default(space);
 
-    expect(space.owner).toStrictEqual({
+    expect({
+      firstName: space.owner?.firstName,
+      lastName: space.owner?.lastName,
+    }).toStrictEqual({
       firstName: "마틴",
       lastName: "파울러",
     });
@@ -20,7 +25,8 @@ describe("변수 캡슐화", () => {
     expect(owner1.lastName).toBe("파울러");
 
     const owner2 = defaultOwner();
-    owner2.lastName = "파슨스";
-    expect(owner1.lastName).toBe("파울러");
+    const setName = () => (owner2.lastName = "파슨스");
+
+    expect(setName).toThrow(TypeError);
   });
 });
