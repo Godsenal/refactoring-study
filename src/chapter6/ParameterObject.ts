@@ -37,8 +37,14 @@ const operatingPlan = {
   temperatureCeiling: 54,
 };
 
+const range = new NumberRange(
+  operatingPlan.temperatureCeiling,
+  operatingPlan.temperatureCeiling
+);
+
 readingsOutsideRange(
   stationData,
   operatingPlan.temperatureFloor,
-  operatingPlan.temperatureFloor
+  operatingPlan.temperatureFloor,
+  range
 );
