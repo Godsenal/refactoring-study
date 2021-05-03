@@ -14,10 +14,10 @@ class Order {
     this._priority = data.priority;
   }
 
-  get priority() {
+  get priorityString() {
     return this._priority.toString();
   }
-  set priority(aString) {
+  set priorityString(aString) {
     this._priority = new Priority(aString);
   }
 }
@@ -28,5 +28,5 @@ const orders = [
 ];
 
 const highPriorityCount = orders.filter(
-  (o) => o.priority === "high" || o.priority === "rush"
+  (o) => o.priorityString === "high" || o.priorityString === "rush"
 ).length;
