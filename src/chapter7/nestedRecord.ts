@@ -1,4 +1,4 @@
-const customerData = {
+let customerData = {
   "1920": {
     name: "마틴 파울러",
     id: "1920",
@@ -29,20 +29,25 @@ const customerData = {
   },
 };
 
+const getRawDataOfCustomers = () => customerData;
+const setRawDataOfCustomers = (args) => (customerData = args);
+
 const customerID = "1920";
 const year = 2016;
 const month = 2;
 
 const newAmount = 30;
 
-customerData[customerID].usages[year][month] = newAmount;
+getRawDataOfCustomers()[customerID].usages[year][month] = newAmount;
 const compareUsage = (
   customerID: keyof typeof customerData,
   laterYear: number,
   month: number
 ) => {
-  const later = customerData[customerID].usages[laterYear][month];
-  const earlier = customerData[customerID].usages[laterYear - 1][month];
+  const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
+  const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][
+    month
+  ];
 
   return { laterAmount: later, change: later - earlier };
 };
