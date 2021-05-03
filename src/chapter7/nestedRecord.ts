@@ -15,6 +15,10 @@ class CustomerData {
   constructor(data: TCustomerData) {
     this._data = data;
   }
+
+  setUsage(customerID: string, year: number, mount: number, amount: number) {
+    this._data[customerID].usages[year][month] = amount;
+  }
 }
 
 let customerData = new CustomerData({
@@ -58,7 +62,7 @@ const month = 2;
 
 const newAmount = 30;
 
-getRawDataOfCustomers()[customerID].usages[year][month] = newAmount;
+getCustomerData().setUsage(customerID, year, month, newAmount);
 const compareUsage = (customerID: string, laterYear: number, month: number) => {
   const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
   const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][
