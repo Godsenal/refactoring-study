@@ -1,17 +1,19 @@
 type TData = { name: string; country: string };
 
 class Organization {
-  _data: TData;
-  constructor(data) {
-    this._data = data;
+  _name: TData["name"];
+  _country: TData["country"];
+  constructor(data: TData) {
+    this._name = data.name;
+    this._country = data.country;
   }
 
   get name() {
-    return this._data.name;
+    return this._name;
   }
 
   set name(name: TData["name"]) {
-    this._data.name = name;
+    this._name = name;
   }
 }
 
