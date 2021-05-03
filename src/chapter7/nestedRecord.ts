@@ -1,3 +1,5 @@
+import { cloneDeep } from "lodash";
+
 type TCustomerData = {
   [key: string]: {
     name: string;
@@ -14,6 +16,10 @@ class CustomerData {
   _data: TCustomerData;
   constructor(data: TCustomerData) {
     this._data = data;
+  }
+
+  get rawData() {
+    return cloneDeep(this._data);
   }
 
   setUsage(customerID: string, year: number, mount: number, amount: number) {
@@ -53,7 +59,7 @@ let customerData = new CustomerData({
 });
 
 const getCustomerData = () => customerData;
-const getRawDataOfCustomers = () => customerData._data;
+const getRawDataOfCustomers = () => customerData.rawData;
 const setRawDataOfCustomers = (args) => (customerData = new CustomerData(args));
 
 const customerID = "1920";
