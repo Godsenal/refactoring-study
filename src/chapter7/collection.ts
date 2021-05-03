@@ -21,9 +21,6 @@ class Person {
   public get courses() {
     return this._courses;
   }
-  public set courses(value) {
-    this._courses = value;
-  }
   constructor(name: string, courses: Course[]) {
     this._name = name;
     this._courses = courses;
