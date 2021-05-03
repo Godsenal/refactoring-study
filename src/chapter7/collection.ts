@@ -54,5 +54,5 @@ const numAdvancedCourses = person.courses.filter((c) => c.isAdvanced).length;
 const basicCourseNames = ["Design Pattern"];
 
 for (const name of basicCourseNames) {
-  person.courses.push(new Course(name, false));
+  person.addCourse(new Course(name, false));
 }
