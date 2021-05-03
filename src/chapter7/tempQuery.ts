@@ -15,7 +15,7 @@ class Order {
   }
 
   get price() {
-    let discountFactor = this.discountFactor;
+    const discountFactor = this.discountFactor;
 
     return this.basePrice * discountFactor;
   }
