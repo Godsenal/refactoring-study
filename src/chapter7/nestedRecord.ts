@@ -13,7 +13,7 @@ type TCustomerData = {
 };
 
 class CustomerData {
-  _data: TCustomerData;
+  private _data: TCustomerData;
   constructor(data: TCustomerData) {
     this._data = data;
   }
