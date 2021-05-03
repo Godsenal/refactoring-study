@@ -19,7 +19,7 @@ class Person {
   }
   private _courses: Course[];
   public get courses() {
-    return this._courses;
+    return this._courses.slice();
   }
   constructor(name: string, courses: Course[]) {
     this._name = name;
