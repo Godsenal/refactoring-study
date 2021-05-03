@@ -1,4 +1,23 @@
-let customerData = {
+type TCustomerData = {
+  [key: string]: {
+    name: string;
+    id: string;
+    usages: {
+      [key: string]: {
+        [key: string]: number;
+      };
+    };
+  };
+};
+
+class CustomerData {
+  _data: TCustomerData;
+  constructor(data: TCustomerData) {
+    this._data = data;
+  }
+}
+
+let customerData = new CustomerData({
   "1920": {
     name: "마틴 파울러",
     id: "1920",
@@ -27,10 +46,11 @@ let customerData = {
       },
     },
   },
-};
+});
 
-const getRawDataOfCustomers = () => customerData;
-const setRawDataOfCustomers = (args) => (customerData = args);
+const getCustomerData = () => customerData;
+const getRawDataOfCustomers = () => customerData._data;
+const setRawDataOfCustomers = (args) => (customerData = new CustomerData(args));
 
 const customerID = "1920";
 const year = 2016;
@@ -39,11 +59,7 @@ const month = 2;
 const newAmount = 30;
 
 getRawDataOfCustomers()[customerID].usages[year][month] = newAmount;
-const compareUsage = (
-  customerID: keyof typeof customerData,
-  laterYear: number,
-  month: number
-) => {
+const compareUsage = (customerID: string, laterYear: number, month: number) => {
   const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
   const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][
     month
