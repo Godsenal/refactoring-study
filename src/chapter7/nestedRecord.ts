@@ -63,8 +63,6 @@ let customerData = new CustomerData({
 });
 
 const getCustomerData = () => customerData;
-const getRawDataOfCustomers = () => customerData.rawData;
-const setRawDataOfCustomers = (args) => (customerData = new CustomerData(args));
 
 const customerID = "1920";
 const year = 2016;
