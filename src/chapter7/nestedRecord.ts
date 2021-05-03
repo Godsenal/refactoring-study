@@ -22,6 +22,10 @@ class CustomerData {
     return cloneDeep(this._data);
   }
 
+  usage(customerID: string, year: number, month: number) {
+    return this._data[customerID].usages[year][month];
+  }
+
   setUsage(customerID: string, year: number, mount: number, amount: number) {
     this._data[customerID].usages[year][month] = amount;
   }
@@ -70,10 +74,8 @@ const newAmount = 30;
 
 getCustomerData().setUsage(customerID, year, month, newAmount);
 const compareUsage = (customerID: string, laterYear: number, month: number) => {
-  const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
-  const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][
-    month
-  ];
+  const later = getCustomerData().usage(customerID, laterYear, month);
+  const earlier = getCustomerData().usage(customerID, laterYear - 1, month);
 
   return { laterAmount: later, change: later - earlier };
 };
