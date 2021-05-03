@@ -28,6 +28,20 @@ class Person {
     this._name = name;
     this._courses = courses;
   }
+
+  addCourse(course: Course) {
+    this._courses.push(course);
+  }
+  removeCourse(
+    course: Course,
+    fnIfAbsent = () => {
+      throw new RangeError();
+    }
+  ) {
+    const index = this._courses.indexOf(course);
+    if (index === -1) fnIfAbsent();
+    else this._courses.splice(index, 1);
+  }
 }
 
 const person = new Person("이태희", [
