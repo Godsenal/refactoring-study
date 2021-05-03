@@ -17,10 +17,6 @@ class Organization {
 
 const organization = new Organization({ name: "삼성", country: "KR" });
 
-const getRawDataOfOrganization = () => {
-  return organization._data;
-};
-
 const getOrganization = () => organization;
 
 const result = `<h1>${getOrganization().name}</h1>`;
