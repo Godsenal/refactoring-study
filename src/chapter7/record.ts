@@ -1,7 +1,17 @@
+type TData = { name: string; country: string };
+
 class Organization {
-  _data: { name: string; country: string };
+  _data: TData;
   constructor(data) {
     this._data = data;
+  }
+
+  get name() {
+    return this._data.name;
+  }
+
+  set name(name: TData["name"]) {
+    this._data.name = name;
   }
 }
 
@@ -13,5 +23,5 @@ const getRawDataOfOrganization = () => {
 
 const getOrganization = () => organization;
 
-const result = `<h1>${getRawDataOfOrganization().name}</h1>`;
-getRawDataOfOrganization().name = "엘지";
+const result = `<h1>${getOrganization().name}</h1>`;
+getOrganization().name = "엘지";
