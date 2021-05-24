@@ -55,20 +55,8 @@ class Bird {
     Object.assign(this, bird);
   }
 
-  get plumage() {
-    switch (this.type) {
-      case "europe": {
-        return "노말";
-      }
-      case "africa": {
-        return this.numberOfCoconuts > 2 ? "지쳤다" : "보통이다";
-      }
-      case "norway": {
-        return this.voltage > 100 ? "그을렸다" : "예쁘다";
-      }
-      default:
-        return "알 수 없다";
-    }
+  get plumage(): string {
+    return "알 수 없다";
   }
 
   get airSpeedVelocity() {
@@ -88,6 +76,18 @@ class Bird {
   }
 }
 
-class EuropeanSwallow extends Bird {}
-class AfricanSwallow extends Bird {}
-class NorwegianBlueParrot extends Bird {}
+class EuropeanSwallow extends Bird {
+  get plumage() {
+    return "노말";
+  }
+}
+class AfricanSwallow extends Bird {
+  get plumage() {
+    return this.numberOfCoconuts > 2 ? "지쳤다" : "보통이다";
+  }
+}
+class NorwegianBlueParrot extends Bird {
+  get plumage() {
+    return this.voltage > 100 ? "그을렸다" : "예쁘다";
+  }
+}
