@@ -2,6 +2,9 @@ class Employee {
   seniority!: number;
   monthsDisabled!: number;
   isPartTime!: number;
+
+  isSeparated!: boolean;
+  isRetired!: boolean;
 }
 
 const employee = new Employee();
