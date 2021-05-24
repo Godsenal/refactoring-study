@@ -1,5 +1,5 @@
 function rating(voyage, history) {
-  return new Rating(voyage, history).value;
+  return createRating(voyage, history).value;
 }
 
 type TVoyage = {
@@ -92,6 +92,15 @@ class Rating {
   }
 }
 
+class ExperiencedChinaRating extends Rating {}
+
+function createRating(voyage, history) {
+  if (voyage.zone === "중국" && history.some((v) => "중국" === v.zone)) {
+    return new ExperiencedChinaRating(voyage, history);
+  } else {
+    return new Rating(voyage, history);
+  }
+}
 const voyage = {
   zone: "서인도",
   length: 10,
