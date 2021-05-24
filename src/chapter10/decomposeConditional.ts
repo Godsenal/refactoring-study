@@ -19,13 +19,8 @@ const date = new SomeDate();
 const plan = new Plan();
 
 const quantity = 10;
-let charge;
+const charge = summer() ? summerCharge() : regularCharge();
 
-if (summer()) {
-  charge = summerCharge();
-} else {
-  charge = regularCharge();
-}
 function regularCharge(): any {
   return quantity * plan.regularRate + plan.regularServiceCharge;
 }
