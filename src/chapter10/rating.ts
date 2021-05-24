@@ -73,6 +73,13 @@ class Rating {
     if (this.voyage.zone === "동인도") {
       result += 1;
     }
+    result = this.voyageAndHistoryLengthFactor;
+
+    return result;
+  }
+
+  get voyageAndHistoryLengthFactor() {
+    let result;
     if (this.voyage.zone === "중국" && this.hasChinaHistory) {
       result += 3;
       if (this.history.length > 10) result += 1;
@@ -82,7 +89,6 @@ class Rating {
       if (this.history.length > 8) result += 1;
       if (this.voyage.length > 14) result -= 1;
     }
-
     return result;
   }
 
