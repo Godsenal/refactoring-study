@@ -7,8 +7,7 @@ class Employee {
 const employee = new Employee();
 
 function disabilityAmount() {
-  if (employee.seniority < 2) return 0;
-  if (employee.monthsDisabled > 12) return 0;
+  if (employee.seniority < 2 || employee.monthsDisabled > 12) return 0;
   if (employee.isPartTime) return 0;
 
   // 나머지
