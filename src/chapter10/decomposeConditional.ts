@@ -21,8 +21,11 @@ const plan = new Plan();
 const quantity = 10;
 let charge;
 
-if (!date.isBefore(plan.summerStart) && !date.isAfter(plan.summerEnd)) {
+if (summer()) {
   charge = quantity * plan.summerRate;
 } else {
   charge = quantity * plan.regularRate + plan.regularServiceCharge;
+}
+function summer() {
+  return !date.isBefore(plan.summerStart) && !date.isAfter(plan.summerEnd);
 }
