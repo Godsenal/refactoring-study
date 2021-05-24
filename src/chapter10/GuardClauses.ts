@@ -1,6 +1,8 @@
-function payAmount(employee: Employee) {
-  let result;
+const calculate = () => ({
+  amount: 100,
+});
 
+function payAmount(employee: Employee) {
   if (employee.isSeparated) {
     return { amount: 0, reasonCode: "SEP" };
   }
@@ -9,6 +11,6 @@ function payAmount(employee: Employee) {
   }
 
   // 급여 계산 로직
-
+  const result = calculate();
   return result;
 }
