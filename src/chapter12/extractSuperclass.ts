@@ -1,10 +1,17 @@
 class Party {
   private _name: string;
+  public get monthlyCost() {
+    return 0;
+  }
   public get name(): string {
     return this._name;
   }
   constructor(name: string) {
     this._name = name;
+  }
+  get annualCost() {
+    // 총 연간 비용
+    return this.monthlyCost * 12;
   }
 }
 
@@ -21,11 +28,6 @@ class Employee extends Party {
     super(name);
     this._id = id;
     this._monthlyCost = monthlyCost;
-  }
-
-  get annualCost() {
-    // 연간비용
-    return this.monthlyCost * 12;
   }
 }
 
@@ -47,9 +49,5 @@ class Department extends Party {
   }
   get headCount() {
     return this.staff.length;
-  }
-  get annualCost() {
-    // 총 연간 비용
-    return this.monthlyCost * 12;
   }
 }
