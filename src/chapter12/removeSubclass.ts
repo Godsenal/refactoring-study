@@ -12,7 +12,7 @@ class Person {
     return this._genderCode || "X";
   }
   get isMale() {
-    return this instanceof Male;
+    return this._genderCode === "M";
   }
 }
 
@@ -31,7 +31,7 @@ class FeMale extends Person {
 const createPerson = (aRecord) => {
   switch (aRecord.gender) {
     case "M":
-      return new Male(aRecord.name);
+      return new Person(aRecord.name, "M");
     case "F":
       return new FeMale(aRecord.name);
     default:
