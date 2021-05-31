@@ -6,14 +6,12 @@ enum EmployeeType {
 
 class Employees {
   _name: string;
-  private _type: string;
   public get type(): string {
-    return this._type;
+    return "";
   }
   constructor(name: string, type: EmployeeType) {
     this.validateType(type);
     this._name = name;
-    this._type = type;
   }
   validateType(arg: string) {
     if (!Object.values(EmployeeType).includes(arg as EmployeeType)) {
