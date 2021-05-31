@@ -16,18 +16,6 @@ class Person {
   }
 }
 
-class Male extends Person {
-  get genderCode() {
-    return "M";
-  }
-}
-
-class FeMale extends Person {
-  get genderCode() {
-    return "F";
-  }
-}
-
 const createPerson = (aRecord) => {
   switch (aRecord.gender) {
     case "M":
