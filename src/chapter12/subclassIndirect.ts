@@ -1,11 +1,5 @@
 class EmployeesType {
-  _value: EmployeeType;
-  constructor(aString) {
-    this._value = aString;
-  }
-  toString() {
-    return this._value;
-  }
+  toString() {}
 }
 
 class Engineer extends EmployeesType {
@@ -41,7 +35,7 @@ class Employees {
     return this._type;
   }
   set type(arg: EmployeeType) {
-    this._type = new EmployeesType(arg);
+    this._type = Employees.createEmployee(arg);
   }
   get capitalizedType() {
     return (
@@ -57,7 +51,7 @@ class Employees {
   toString() {
     return `${this._name} (${this.capitalizedType})`;
   }
-  static createEmployee(name: string, type: EmployeeType) {
+  static createEmployee(type: EmployeeType) {
     switch (type) {
       case EmployeeType.Engineer: {
         return new Engineer();
