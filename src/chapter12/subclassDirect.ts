@@ -30,3 +30,12 @@ class Engineer extends Employees {
     return EmployeeType.Engineer;
   }
 }
+
+const createEmployee = (name: string, type: EmployeeType) => {
+  switch (type) {
+    case EmployeeType.Engineer: {
+      return new Engineer(name, type);
+    }
+  }
+  return new Employees(name, type);
+};
