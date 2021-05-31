@@ -1,5 +1,14 @@
 class EmployeesType {
-  toString() {}
+  toString() {
+    return "";
+  }
+
+  get capitalizedName() {
+    return (
+      this.toString().charAt(0).toUpperCase() +
+      this.toString().substr(1).toLowerCase()
+    );
+  }
 }
 
 class Engineer extends EmployeesType {
@@ -28,20 +37,11 @@ class Employees {
     this._name = name;
     this.type = type;
   }
-  get typeString() {
-    return this.type.toString();
-  }
   get type() {
     return this._type;
   }
   set type(arg: EmployeeType) {
     this._type = Employees.createEmployee(arg);
-  }
-  get capitalizedType() {
-    return (
-      this.typeString.charAt(0).toUpperCase() +
-      this.typeString.substr(1).toLowerCase()
-    );
   }
   validateType(arg: string) {
     if (!Object.values(EmployeeType).includes(arg as EmployeeType)) {
@@ -49,7 +49,7 @@ class Employees {
     }
   }
   toString() {
-    return `${this._name} (${this.capitalizedType})`;
+    return `${this._name} (${this.type.capitalizedName})`;
   }
   static createEmployee(type: EmployeeType) {
     switch (type) {
