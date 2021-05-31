@@ -23,24 +23,19 @@ class FeMale extends Person {
   }
 }
 
-const loadFromInput = (data) => {
-  const result = [];
-  data.forEach((aRecord) => {
-    let p;
-    switch (aRecord.gender) {
-      case "M":
-        p = new Male(aRecord.name);
-        break;
-      case "F":
-        p = new FeMale(aRecord.name);
-        break;
-      default:
-        p = new Person(aRecord.name);
-    }
+const createPerson = (aRecord) => {
+  switch (aRecord.gender) {
+    case "M":
+      return new Male(aRecord.name);
+    case "F":
+      return new FeMale(aRecord.name);
+    default:
+      return new Person(aRecord.name);
+  }
+};
 
-    result.push(p);
-  });
-  return result;
+const loadFromInput = (data) => {
+  return data.map((aRecord) => createPerson(aRecord));
 };
 
 const isMale = (aPerson) => aPerson instanceof Male;
