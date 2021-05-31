@@ -39,7 +39,7 @@ class Department extends Party {
     this._staff = staff;
   }
 
-  get totalMonthlyCost() {
+  get monthlyCost() {
     // 총 월간 비용
     return this.staff
       .map((e) => e.monthlyCost)
@@ -48,8 +48,8 @@ class Department extends Party {
   get headCount() {
     return this.staff.length;
   }
-  get totalAnnualCost() {
+  get annualCost() {
     // 총 연간 비용
-    return this.totalMonthlyCost * 12;
+    return this.monthlyCost * 12;
   }
 }
