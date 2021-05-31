@@ -8,6 +8,24 @@ class EmployeesType {
   }
 }
 
+class Engineer extends EmployeesType {
+  toString() {
+    return EmployeeType.Engineer;
+  }
+}
+
+class Manager extends EmployeesType {
+  toString() {
+    return EmployeeType.Manager;
+  }
+}
+
+class Salesperson extends EmployeesType {
+  toString() {
+    return EmployeeType.Salesperson;
+  }
+}
+
 class Employees {
   _name: string;
   _type: EmployeesType;
@@ -38,5 +56,20 @@ class Employees {
   }
   toString() {
     return `${this._name} (${this.capitalizedType})`;
+  }
+  static createEmployee(name: string, type: EmployeeType) {
+    switch (type) {
+      case EmployeeType.Engineer: {
+        return new Engineer();
+      }
+      case EmployeeType.Salesperson: {
+        return new Salesperson();
+      }
+      case EmployeeType.Manager: {
+        return new Manager();
+      }
+      default:
+        throw new Error(`${type}라는 직원 유형은 없습니다.`);
+    }
   }
 }
