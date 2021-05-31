@@ -9,6 +9,9 @@ class Person {
   get genderCode() {
     return "X";
   }
+  get isMale() {
+    return this instanceof Male;
+  }
 }
 
 class Male extends Person {
@@ -38,5 +41,4 @@ const loadFromInput = (data) => {
   return data.map((aRecord) => createPerson(aRecord));
 };
 
-const isMale = (aPerson) => aPerson instanceof Male;
-const numberOfMales = (data) => data.filter((p) => isMale(p)).length;
+const numberOfMales = (data) => data.filter((p) => p.isMale).length;
