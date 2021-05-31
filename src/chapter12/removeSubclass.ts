@@ -9,7 +9,7 @@ class Person {
     return this._name;
   }
   get genderCode() {
-    return this._genderCode || "X";
+    return this._genderCode;
   }
   get isMale() {
     return this._genderCode === "M";
@@ -23,7 +23,7 @@ const createPerson = (aRecord) => {
     case "F":
       return new Person(aRecord.name, "F");
     default:
-      return new Person(aRecord.name);
+      return new Person(aRecord.name, "X");
   }
 };
 
