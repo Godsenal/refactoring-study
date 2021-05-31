@@ -10,13 +10,7 @@ class Employees {
     return "";
   }
   constructor(name: string, type: EmployeeType) {
-    this.validateType(type);
     this._name = name;
-  }
-  validateType(arg: string) {
-    if (!Object.values(EmployeeType).includes(arg as EmployeeType)) {
-      throw new Error(`${arg}라는 직원 유형은 없습니다.`);
-    }
   }
   toString() {
     return `${this._name} (${this.type})`;
@@ -52,6 +46,7 @@ const createEmployee = (name: string, type: EmployeeType) => {
     case EmployeeType.Manager: {
       return new Manager(name, type);
     }
+    default:
+      throw new Error(`${type}라는 직원 유형은 없습니다.`);
   }
-  return new Employees(name, type);
 };
