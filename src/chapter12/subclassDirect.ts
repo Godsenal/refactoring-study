@@ -9,7 +9,7 @@ class Employees {
   public get type(): string {
     return "";
   }
-  constructor(name: string, type: EmployeeType) {
+  constructor(name: string) {
     this._name = name;
   }
   toString() {
@@ -38,13 +38,13 @@ class Manager extends Employees {
 const createEmployee = (name: string, type: EmployeeType) => {
   switch (type) {
     case EmployeeType.Engineer: {
-      return new Engineer(name, type);
+      return new Engineer(name);
     }
     case EmployeeType.Salesperson: {
-      return new Salesperson(name, type);
+      return new Salesperson(name);
     }
     case EmployeeType.Manager: {
-      return new Manager(name, type);
+      return new Manager(name);
     }
     default:
       throw new Error(`${type}라는 직원 유형은 없습니다.`);
