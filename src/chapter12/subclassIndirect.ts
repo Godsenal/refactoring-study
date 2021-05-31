@@ -1,20 +1,34 @@
+class EmployeesType {
+  _value: EmployeeType;
+  constructor(aString) {
+    this._value = aString;
+  }
+  toString() {
+    return this._value;
+  }
+}
+
 class Employees {
   _name: string;
-  _type: string;
+  _type: EmployeesType;
   constructor(name: string, type: EmployeeType) {
     this.validateType(type);
     this._name = name;
-    this._type = type;
+    this.type = type;
+  }
+  get typeString() {
+    return this.type.toString();
   }
   get type() {
     return this._type;
   }
-  set type(arg) {
-    this._type = arg;
+  set type(arg: EmployeeType) {
+    this._type = new EmployeesType(arg);
   }
   get capitalizedType() {
     return (
-      this._type.charAt(0).toUpperCase() + this._type.substr(1).toLowerCase()
+      this.typeString.charAt(0).toUpperCase() +
+      this.typeString.substr(1).toLowerCase()
     );
   }
   validateType(arg: string) {
