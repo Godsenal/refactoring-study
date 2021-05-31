@@ -6,34 +6,16 @@ enum EmployeeType {
 
 class Employees {
   _name: string;
-  public get type(): string {
-    return "";
-  }
   constructor(name: string) {
     this._name = name;
   }
-  toString() {
-    return `${this._name} (${this.type})`;
-  }
 }
 
-class Engineer extends Employees {
-  get type() {
-    return EmployeeType.Engineer;
-  }
-}
+class Engineer extends Employees {}
 
-class Salesperson extends Employees {
-  get type() {
-    return EmployeeType.Salesperson;
-  }
-}
+class Salesperson extends Employees {}
 
-class Manager extends Employees {
-  get type() {
-    return EmployeeType.Manager;
-  }
-}
+class Manager extends Employees {}
 
 const createEmployee = (name: string, type: EmployeeType) => {
   switch (type) {
