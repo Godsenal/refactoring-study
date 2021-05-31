@@ -1,5 +1,8 @@
 class Party {
-  _name: string;
+  private _name: string;
+  public get name(): string {
+    return this._name;
+  }
   constructor(name: string) {
     this._name = name;
   }
@@ -9,10 +12,6 @@ class Employee extends Party {
   private _id: string;
   public get id(): string {
     return this._id;
-  }
-  private _name: string;
-  public get name(): string {
-    return this._name;
   }
   private _monthlyCost: number;
   public get monthlyCost(): number {
@@ -31,10 +30,6 @@ class Employee extends Party {
 }
 
 class Department extends Party {
-  private _name: string;
-  public get name(): string {
-    return this._name;
-  }
   private _staff: Employee[];
   public get staff(): Employee[] {
     return this._staff;
