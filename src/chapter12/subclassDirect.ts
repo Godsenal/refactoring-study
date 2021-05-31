@@ -6,7 +6,10 @@ enum EmployeeType {
 
 class Employees {
   _name: string;
-  _type: string;
+  private _type: string;
+  public get type(): string {
+    return this._type;
+  }
   constructor(name: string, type: EmployeeType) {
     this.validateType(type);
     this._name = name;
@@ -18,6 +21,6 @@ class Employees {
     }
   }
   toString() {
-    return `${this._name} (${this._type})`;
+    return `${this._name} (${this.type})`;
   }
 }
