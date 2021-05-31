@@ -1,4 +1,6 @@
-class Employee {
+class Party {}
+
+class Employee extends Party {
   private _id: string;
   public get id(): string {
     return this._id;
@@ -12,6 +14,7 @@ class Employee {
     return this._monthlyCost;
   }
   constructor(name, id, monthlyCost) {
+    super();
     this._id = id;
     this._name = name;
     this._monthlyCost = monthlyCost;
@@ -23,7 +26,7 @@ class Employee {
   }
 }
 
-class Department {
+class Department extends Party {
   private _name: string;
   public get name(): string {
     return this._name;
@@ -33,6 +36,7 @@ class Department {
     return this._staff;
   }
   constructor(name: string, staff: string) {
+    super();
     this._name = name;
     this._staff = staff;
   }
