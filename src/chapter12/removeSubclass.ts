@@ -1,13 +1,15 @@
 class Person {
   _name: string;
-  constructor(name: string) {
+  _genderCode: string;
+  constructor(name: string, genderCode: string) {
     this._name = name;
+    this._genderCode = genderCode;
   }
   get name() {
     return this._name;
   }
   get genderCode() {
-    return "X";
+    return this._genderCode || "X";
   }
   get isMale() {
     return this instanceof Male;
